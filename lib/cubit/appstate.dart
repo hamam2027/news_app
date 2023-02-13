@@ -17,3 +17,5 @@ class NewsGetSportsLoding extends Appstate {}
 class NewsGetSportsError extends Appstate {}
 
 class AppChangeModeState extends Appstate {}
+
+class Funcstate extends Appstate {}

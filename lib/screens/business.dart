@@ -15,10 +15,14 @@ class Business extends StatelessWidget {
         listener: (BuildContext context, state) {},
         builder: (BuildContext context, state) {
           AppCubit cubit = AppCubit.get(context);
+          if (cubit.business.isEmpty) {
+            cubit.getbussiness();
+          }
+
           var list = cubit.business;
 
           return ConditionalBuilder(
-              condition: true,
+              condition: list.isNotEmpty,
               fallback: (context) => const Center(
                     child: CircularProgressIndicator(),
                   ),

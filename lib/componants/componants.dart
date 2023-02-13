@@ -5,6 +5,7 @@ Widget BuldArticalItem(artical, context) => InkWell(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => WbVewNews(
+                  title: artical["title"],
                   url: artical["url"],
                 )));
       },
@@ -27,7 +28,7 @@ Widget BuldArticalItem(artical, context) => InkWell(
                     width: 120,
                     child: Center(
                       child: Text("لا يوجد صورة",
-                          style: Theme.of(context).textTheme.bodyText1),
+                          style: Theme.of(context).textTheme.bodyMedium),
                     ),
                   ),
             const SizedBox(
@@ -47,7 +48,7 @@ Widget BuldArticalItem(artical, context) => InkWell(
                           maxLines: 3,
                           overflow: TextOverflow.ellipsis,
                           "${artical["title"]}",
-                          style: Theme.of(context).textTheme.bodyText1),
+                          style: Theme.of(context).textTheme.bodyLarge),
                     ),
                     Text(
                       "${artical["publishedAt"]}",

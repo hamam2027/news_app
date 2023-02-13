@@ -4,15 +4,20 @@ import 'package:webview_flutter/webview_flutter.dart';
 
 class WbVewNews extends StatelessWidget {
   String? url;
+  String? title;
   WbVewNews({
     Key? key,
     required this.url,
+    required this.title,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          title: Text(textDirection: TextDirection.rtl, title!),
+          backgroundColor: Colors.teal,
+        ),
         body: WebView(
           initialUrl: url,
         ));

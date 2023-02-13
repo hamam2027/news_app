@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/cubit/appstate.dart';
 import 'package:news_app/screens/business.dart';
+import 'package:news_app/screens/general.dart';
+import 'package:news_app/screens/healthy.dart';
 import 'package:news_app/screens/scinece.dart';
 import 'package:news_app/screens/settinge.dart';
 import 'package:news_app/screens/sports.dart';
+import 'package:news_app/screens/technology.dart';
 import 'package:news_app/sharead/network/dio_helper.dart';
 
 class AppCubit extends Cubit<Appstate> {
@@ -14,10 +17,12 @@ class AppCubit extends Cubit<Appstate> {
 
   int curentindex = 0;
   List<Widget> pages = [
+    const General(),
     const Business(),
-    Sports(),
-    Science(),
-    Settinge(),
+    const Sports(),
+    const Science(),
+    const Healthy(),
+    const Technology(),
   ];
   changbottom(index) {
     curentindex = index;
@@ -118,5 +123,10 @@ class AppCubit extends Cubit<Appstate> {
 
       emit(NewsGetSportsSucces());
     });
+  }
+
+  func({required String message}) {
+    debugPrint(message);
+    emit(Funcstate());
   }
 }

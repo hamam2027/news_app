@@ -6,8 +6,8 @@ import 'package:news_app/componants/componants.dart';
 import 'package:news_app/cubit/appcubit.dart';
 import 'package:news_app/cubit/appstate.dart';
 
-class Science extends StatelessWidget {
-  const Science({super.key});
+class Healthy extends StatelessWidget {
+  const Healthy({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,11 +15,11 @@ class Science extends StatelessWidget {
         listener: (BuildContext context, state) {},
         builder: (BuildContext context, state) {
           AppCubit cubit = AppCubit.get(context);
-          if (cubit.science.isEmpty) {
-            cubit.getscience();
+          if (cubit.health.isEmpty) {
+            cubit.gethealth();
           }
 
-          var list = cubit.science;
+          var list = cubit.health;
 
           return ConditionalBuilder(
               condition: list.isNotEmpty,

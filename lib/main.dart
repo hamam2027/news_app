@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (context) => AppCubit()..getbussiness(),
+        create: (context) => AppCubit(),
         child: BlocConsumer<AppCubit, Appstate>(
           listener: (BuildContext context, state) {},
           builder: (BuildContext context, Object? state) {
@@ -31,18 +31,19 @@ class MyApp extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               title: 'News app',
               theme: ThemeData(
+                appBarTheme: const AppBarTheme(
+                    centerTitle: true,
+                    titleTextStyle: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 25,
+                        color: Colors.white)),
                 scaffoldBackgroundColor: Colors.white,
                 textTheme: const TextTheme(
                     bodyText1: TextStyle(
                         color: Colors.black,
                         fontSize: 20,
                         fontWeight: FontWeight.bold)),
-                primarySwatch: Colors.deepOrange,
-                bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-                    unselectedItemColor: Colors.black,
-                    type: BottomNavigationBarType.fixed,
-                    selectedItemColor: Colors.deepOrange,
-                    backgroundColor: Colors.teal),
+                primarySwatch: Colors.teal,
               ),
               home: HomePage(),
             );

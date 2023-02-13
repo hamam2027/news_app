@@ -15,10 +15,14 @@ class Sports extends StatelessWidget {
         listener: (BuildContext context, state) {},
         builder: (BuildContext context, state) {
           AppCubit cubit = AppCubit.get(context);
+          if (cubit.sports.isEmpty) {
+            cubit.getsports();
+          }
+
           var list = cubit.sports;
 
           return ConditionalBuilder(
-              condition: true,
+              condition: list.isNotEmpty,
               fallback: (context) => const Center(
                     child: CircularProgressIndicator(),
                   ),
